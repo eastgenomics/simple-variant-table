@@ -1,0 +1,64 @@
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+		<!-- gtag.Google tag (js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-XXXXXXXXXX');
+		</script>
+		<!-- end gtag.Google tag (js) -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="https://unpkg.com/tabulator-tables@6.3.0/dist/css/tabulator.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div id="variant1-table"></div>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/luxon@2.3.1/build/global/luxon.min.js"></script>
+		<script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.0/dist/js/tabulator.min.js"></script>
+
+		<div id="variant2-table"></div>
+		<script type="text/javascript">
+			//data
+			var csvData = `"id","gene_symbol","hgvsc","chr","start","ref","alt","germline_classification","classification_summary","date_last_evaluated","referral","r_code","consequence","comment","specimen_id","batch_id","panel"
+	"uid_11111111","APC","NM_000038.6:c.994C>T","5",112154723,"C","T","Pathogenic","PVS1,PS4_Moderate,PM2_Supporting","2024-05-29","Inherited polyposis and early onset colorectal cancer - germline testing","R211.1","stop_gained","","24122R0","24NGC","Inherited polyposis and early onset colorectal cancer - germline testing_2.0;HGNC:2001_SG_panel_1.0.0"
+	`;
+
+			//define table
+			var table = new Tabulator("#variant2-table", {
+				height: 800,
+				data:csvData,
+				importFormat:"csv",
+				index:"id",
+				persistence:true,
+				movableColumns: true,
+				columns:[
+					{title:"id", field:"id", visible:false},
+					{title:"gene_symbol", field:"gene_symbol", sorter:"string", width:100, resizable:true, frozen:true, headerFilter:"input"},
+					{title:"hgvsc", field:"hgvsc", sorter:"string", width:200, resizable:true, headerFilter:"input"},
+					{title:"chr", field:"chr", sorter:"string", width:40, resizable:true, headerFilter:"input"},
+					{title:"start", field:"start", sorter:"string", width:100, resizable:true, formatter:"money", formatterParams:{precision:0}, hozAlign:"right", headerFilter:"input"},
+					{title:"ref", field:"ref", sorter:"string", width:80, resizable:true, headerFilter:"input"},
+					{title:"alt", field:"alt", sorter:"string", width:80, resizable:true, headerFilter:"input"},
+					{title:"germline_classification", field:"germline_classification", sorter:"string", width:160, resizable:true, headerFilter:"input"},
+					{title:"classification_summary", field:"classification_summary", sorter:"string", width:250, resizable:true, headerFilter:"input"},
+					{title:"date_last_evaluated", field:"date_last_evaluated", sorter:"date", width:90, resizable:true, headerFilter:"input"},
+					{title:"referral", field:"referral", sorter:"string", width:200, resizable:true, headerFilter:"input"},
+					{title:"r_code", field:"r_code", sorter:"string", width:60, resizable:true, headerFilter:"input"},
+					{title:"consequence", field:"consequence", sorter:"string", width:120, resizable:true, headerFilter:"input"},
+					{title:"comment", field:"comment", sorter:"string", width:300, resizable:true, formatter:"textarea", headerFilter:"input"},
+					{title:"specimen_id", field:"specimen_id", sorter:"string", width:120, resizable:true, headerFilter:"input"},
+					{title:"batch_id", field:"batch_id", sorter:"string", width:120, resizable:true, headerFilter:"input"},
+					{title:"panel", field:"panel", sorter:"string", width:240, resizable:true, headerFilter:"input"}
+				],
+			});
+
+		</script>
+	</body>
+
+	</html>
