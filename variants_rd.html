@@ -15,14 +15,13 @@
 		<!-- end gtag.Google tag (js) -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="https://unpkg.com/tabulator-tables@6.3.0/dist/css/tabulator.min.css" rel="stylesheet">
+		<title>simple variant database</title>
 	</head>
 
 	<body>
-		<div id="variant1-table"></div>
+		<div id="variant2-table"></div>
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/luxon@2.3.1/build/global/luxon.min.js"></script>
 		<script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.0/dist/js/tabulator.min.js"></script>
-
-		<div id="variant2-table"></div>
 		<script type="text/javascript">
 			//data
 			var csvData = `"id","gene_symbol","hgvsc","chr","start","ref","alt","germline_classification","classification_summary","date_last_evaluated","referral","r_code","consequence","comment","specimen_id","batch_id","panel"
@@ -47,7 +46,7 @@
 					{title:"alt", field:"alt", sorter:"string", width:80, resizable:true, headerFilter:"input"},
 					{title:"germline_classification", field:"germline_classification", sorter:"string", width:160, resizable:true, headerFilter:"input"},
 					{title:"classification_summary", field:"classification_summary", sorter:"string", width:250, resizable:true, headerFilter:"input"},
-					{title:"date_last_evaluated", field:"date_last_evaluated", sorter:"date", width:90, resizable:true, headerFilter:"input"},
+					{title:"date_last_evaluated", field:"date_last_evaluated", sorter:"date", sorterParams:{format:"yyyy-MM-dd", alignEmptyValues:"top"}, width:90, resizable:true, headerFilter:"input"},
 					{title:"referral", field:"referral", sorter:"string", width:200, resizable:true, headerFilter:"input"},
 					{title:"r_code", field:"r_code", sorter:"string", width:60, resizable:true, headerFilter:"input"},
 					{title:"consequence", field:"consequence", sorter:"string", width:120, resizable:true, headerFilter:"input"},
